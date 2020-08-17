@@ -12,14 +12,36 @@
 
 #include "ft_ls.h"
 
-int	main(int argc, char **argv)
+static void			ft_ls(t_ls *ls)
 {
-	int		main(int argc, char **argv)
-{
-	t_frame	frame;
+	ft_parse(ls);
+	// issuance(ls);
+	free_ls(ls);
+}
 
-	frame = create_frame(argc, argv);
+static t_ls		create_ls(int argc, char **argv)
+{
+	t_ls			ls;
+	struct winsize	window_size;
+
+	ft_bzero(&ls, sizeof(ls));
+	ls.argc = argc;
+	ls.argv = argv;
+	// if (!(frame.malloc_failed = ft_strdup("MALLOC FAIL")))
+	// 	exit(1);
+	time(&ls.cur_time);
+	ls.time_6 = ls.cur_time - SIX_MONTHS;
+	if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &window_size) == -1)
+		ls.flags.one = 1;
+	ls.width = window_size.ws_col;
+	return (ls);
+}
+
+int		main(int argc, char **argv)
+{
+	t_ls	ls;
+
+	ls = create_ls(argc, argv);
 	ft_ls(&frame);
 	return (0);
-}
 }

@@ -12,9 +12,14 @@
 
 #ifndef FT_LS_H
 # define FT_LS_H
-#include "libft.h"
 
-struct winsize		g_winsize;
+# include "libft.h"
+# include <time.h>
+
+# define OPTIONS	"-GRalrt1"
+# define SIX_MONTHS	15768000
+
+// struct winsize		g_winsize;
 
 typedef struct		s_flags
 {
@@ -42,5 +47,32 @@ typedef struct		s_flags
 	unsigned char	one		: 1;
 	unsigned char	fill	: 2;
 }					t_flags;
+
+typedef struct		s_ls
+{
+	int				argc;
+	char			**argv;
+	char			**argv_options;
+	// unsigned char	headers	: 1;
+	// unsigned char	fill	: 7;
+	time_t			cur_time;
+	time_t			time_6;
+	// int				len_ino;
+	// int				len_links;
+	// int				len_user;
+	// int				len_group;
+	// int				len_size;
+	// int				len_file_name;
+	// int				items_to_display;
+	// int				total_blocks;
+	int				width;
+	int				number_of_columns;
+	t_flags			flags;
+	// t_args			*args;
+	// t_args			*current_args;
+	// t_args			*head;
+	// t_args			*track;
+	// bool			(*sort_function)(struct s_frame *frame);
+}					t_ls;
 
 #endif
