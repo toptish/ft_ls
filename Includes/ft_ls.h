@@ -24,7 +24,35 @@
 # define SIX_MONTHS	15768000
 # define RL_BUFSIZE	1024
 
-// struct winsize		g_winsize;
+/*
+** struct winsize
+** {
+**  unsigned short ws_row;		rows, in characters 
+**  unsigned short ws_col;		columns, in characters 
+**  unsigned short ws_xpixel;	horizontal size, pixels 
+**  unsigned short ws_ypixel;	vertical size, pixels 
+** };
+*/
+
+/*
+** struct stat {
+**    dev_t         st_dev;       устройство 
+**    ino_t         st_ino;       inode 
+**    mode_t        st_mode;      режим доступа 
+**    nlink_t       st_nlink;     количество жестких ссылок 
+**    uid_t         st_uid;       идентификатор пользователя-владельца 
+**    gid_t         st_gid;       идентификатор группы-владельца 
+**    dev_t         st_rdev;      тип устройства 
+**                                (если это устройство) 
+**    off_t         st_size;      общий размер в байтах 
+**    blksize_t     st_blksize;   размер блока ввода-вывода 
+**                                в файловой системе 
+**    blkcnt_t      st_blocks;    количество выделенных блоков 
+**    time_t        st_atime;     время последнего доступа 
+**    time_t        st_mtime;     время последней модификации 
+**    time_t        st_ctime;     время последнего изменения 
+** };
+*/
 
 typedef struct		s_flags
 {
@@ -66,15 +94,15 @@ typedef struct		s_item
 	long long		ino;
 	int				type;
 	mode_t			mode;
-	int				links;
+	int				nlink;
 	char			*user;
 	char			*group;
 	int				rdev;
 	int				size;
 	time_t			c_time;
-	time_t			t_time;
-	time_t			u_time;
-	time_t			up_u_time;
+	time_t			m_time_t;
+	time_t			a_time_u;
+	time_t			birth_time_up_u;
 	char			sym_path[RL_BUFSIZE + 1];
 
 	unsigned char	ifo		: 1;
