@@ -1,6 +1,7 @@
 NAME = ft_ls
 
-FILES = 
+FILES = ft_ls.c ft_parse.c ft_parse_2.c set_options.c free_ls.c errors.c \
+		print.c adjust_options.c 
 
 LFTDIR = ./Libft/
 
@@ -14,7 +15,7 @@ WHITE:="\033[1;37m"
 EOC:="\033[0;0m"
 # ==================
 
-SRC_PATH = Src/
+SRC_PATH = Sources/
 O_PATH = Obj/
 HEADER = -I./Includes/ -I$(LFTDIR)
 CFLAGS = -Wall -Wextra -Werror
