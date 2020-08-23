@@ -6,7 +6,7 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 17:43:03 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/20 14:37:35 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/22 11:02:53 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@
 # include <time.h>
 # include <sys/ioctl.h>
 # include <dirent.h>
-# include <time.h>
+# include <sys/stat.h>
+# include <sys/types.h>
+# include <pwd.h>
+# include <grp.h>
+// # include <uuid/uuid.h>
 
 # define OPTIONS	"-GRalrtx1"
 # define SIX_MONTHS	15768000
@@ -51,6 +55,32 @@
 **    time_t        st_atime;     время последнего доступа 
 **    time_t        st_mtime;     время последней модификации 
 **    time_t        st_ctime;     время последнего изменения 
+** };
+*/
+
+/*
+** <pwd.h>
+** struct passwd {
+**	char *pw_name;
+**	char *pw_passwd;
+**	uid_t pw_uid;
+**	gid_t pw_gid;
+**	time_t pw_change;
+**	char *pw_class;
+**	char *pw_gecos;
+**	char *pw_dir;
+**	char *pw_shell;
+**	time_t pw_expire;
+** }; 
+*/
+
+/*
+** <grp.h>
+** struct group {
+**	char *gr_name;
+**	char *gr_passwd;
+**	gid_t gr_gid;
+**	char **gr_mem;
 ** };
 */
 
@@ -89,8 +119,8 @@ typedef struct		s_item
 	int				len_of_str;
 
 	unsigned char	no_file	: 1;
-	unsigned char	fill	: 7;
-
+	// unsigned char	fill	: 7;
+	
 	long long		ino;
 	int				type;
 	mode_t			mode;
@@ -105,7 +135,7 @@ typedef struct		s_item
 	time_t			birth_time_up_u;
 	char			sym_path[RL_BUFSIZE + 1];
 
-	unsigned char	ifo		: 1;
+	unsigned char	fifo	: 1;
 	unsigned char	chr		: 1;
 	unsigned char	dir		: 1;
 	unsigned char	blk		: 1;
@@ -132,6 +162,7 @@ typedef struct		s_ls
 	// unsigned char	fill	: 7;
 	time_t			cur_time;
 	time_t			time_6;
+	blkcnt_t		blocks;
 	// int				len_ino;
 	// int				len_links;
 	// int				len_user;
@@ -191,7 +222,11 @@ void			free_arg(t_ls *ls, t_args *args);
 /*
 **	-------------- arrange.c ------------------
 */
-
+void			get_sym_path(t_args *args);
+void			get_type(t_args *args);
+void			get_user_group(t_ls *ls, t_args *args, struct stat *f);
+void			read_f(t_ls *ls, t_args *args, struct stat *f);
+void			arrange_ls_data(t_ls *ls);
 /*
 **	---------------- sort.c ------------------
 */

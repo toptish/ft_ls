@@ -6,11 +6,12 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 22:12:32 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/19 22:28:36 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/22 12:36:30 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "printf.h"
 
 static void			set_options_var(char c, unsigned long *options)
 {

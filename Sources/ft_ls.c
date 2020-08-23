@@ -6,7 +6,7 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 22:19:40 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/19 22:00:14 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/22 10:59:55 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void		ft_ls(t_ls *ls)
 {
 	ft_parse(ls);
-	// arrange_ls_data(ls);
+	arrange_ls_data(ls);
 	free_ls(ls);
 }
 

@@ -6,7 +6,7 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 10:19:18 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/20 00:07:07 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/22 12:36:14 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 void		set_opt_str(t_ls *ls, size_t options_num)
 {
 	char			**argv_options;
+	char			*str;
 	char			*argv_opt_str;
-	
+
 	argv_options = ls->argv_options + 1;
 	if (!(argv_opt_str = (char *)malloc((options_num + 1))))
 		return_error(ls, "Malloc Error");
 	ls->argv_opt_str = argv_opt_str;
 	while (*argv_options)
 	{
-		(*argv_options)++;
-		while (**argv_options)
+		str = *argv_options;
+		str++;
+		while (*str)
 		{
-			ft_printf("%c\n", **argv_options);
-			*argv_opt_str = **argv_options;
-			(*argv_options)++;
+			*argv_opt_str = *str;
+			str++;
 			argv_opt_str++;
 		}
 		argv_options++;
 	}
 	*argv_opt_str = 0;
-	// ft_printf("options_num = %ld, options = %s\n", options_num, ls->argv_opt_str);
 }
 
 void		parse_options(t_ls *ls, int option)

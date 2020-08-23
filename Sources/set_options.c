@@ -6,7 +6,7 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 22:51:32 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/20 00:14:47 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/22 12:35:40 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void			check_options(t_ls *ls, unsigned long flags)
 
 	argv = ls->argv;
 	illegal_opt = illegal_options(ls);
-	ft_printf("illegal_opt %ld", illegal_opt);
+	// ft_printf("illegal_opt %ld\n", illegal_opt);
 	// ft_printf("legal_opt %ld", flags);
 	// if ((option_data = option_data & not_used_opt))
 	// 	print_usage(ls, option_data &= not_used_opt);
@@ -90,9 +90,9 @@ void			get_set_options(t_ls *ls)
 
 	if (!ls->argv_options)
 		return ;
-	// check_options(ls, flags);
-	ft_printf(ls->argv_options[0]);
+	ft_printf("%s\n", ls->argv_options[1]);
 	flags = ft_options(ls->argv_options);
+	ft_printf("flag = %ld\n", flags);
 	set_options(ls, flags);
 	check_options(ls, flags);
 }

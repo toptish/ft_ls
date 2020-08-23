@@ -6,7 +6,7 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 10:21:09 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/19 22:00:12 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/22 17:02:34 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void			free_arg(t_ls *ls, t_args *args)
 {
-	if (args->item.str != ls->error)
+	if (args->item.str != ls->error && args->item.str)
 		free(args->item.str);
-	if (args->item.path != ls->error)
+	if (args->item.path != ls->error && args->item.path)
 		free(args->item.path);
-	if (args->item.user != ls->error)
+	if (args->item.user != ls->error && args->item.user)
 		free(args->item.user);
-	if (args->item.group != ls->error)
+	if (args->item.group != ls->error && args->item.group)
 		free(args->item.group);
 }
 
