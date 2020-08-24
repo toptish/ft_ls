@@ -6,7 +6,7 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/19 15:00:05 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/24 15:32:13 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/24 18:38:09 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@ void			return_error(t_ls *ls, char *error)
 {
 	ft_printf(error);
 	free_ls(ls);
+	exit(0);
 }

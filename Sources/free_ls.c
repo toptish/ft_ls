@@ -6,7 +6,7 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 10:21:09 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/24 15:32:14 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/24 18:38:11 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ void			free_args(t_ls *ls, t_args **start)
 void			free_ls(t_ls *ls)
 {
 	free_args(ls, &ls->args);
-	free(ls->argv_options);
-	free(ls->argv_opt_str);
-	free(ls->error);
+	if (ls->argv_options)
+		free(ls->argv_options);
+	if (ls->argv_opt_str)
+		free(ls->argv_opt_str);
+	if (ls->error)
+		free(ls->error);
 }

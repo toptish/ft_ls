@@ -6,7 +6,7 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/19 15:31:58 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/24 15:32:09 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/24 18:37:28 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void			arrange_ls_data(t_ls *ls)
 		args = args->next;
 	}
 	ls->current_args = ls->args;
-	// sort(ls);
+	sort(ls);
 	ls->args = ls->current_args;
 	// check_headers(ls);
 	// distribution(ls);

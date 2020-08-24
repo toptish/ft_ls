@@ -1,7 +1,7 @@
 NAME = ft_ls
 
 FILES = ft_ls.c ft_parse.c ft_parse_2.c set_options.c free_ls.c errors.c \
-		print.c adjust_options.c arrange.c
+		print.c adjust_options.c arrange.c sort.c sort2.c
 
 LFTDIR = ./Libft/
 

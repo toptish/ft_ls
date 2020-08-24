@@ -6,7 +6,7 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/19 15:16:15 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/24 15:32:24 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/24 18:38:24 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	print_usage(t_ls *ls, unsigned long illegal_opt)
 	{
 		if (!ft_strchr(OPTIONS, *argv_opt))
 		{
-			ft_printf("ft_ls illegal option -- %c\nusage: ft_ls [", *argv_opt);
+			ft_printf("ft_ls illegal option -- %c\nusage: ft_ls: [", *argv_opt);
 			ft_printf(OPTIONS);
 			ft_printf("] [file ...]\n");
 		}

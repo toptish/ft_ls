@@ -6,18 +6,11 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 22:19:40 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/24 15:32:16 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/24 18:38:14 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/ft_ls.h"
-
-void		ft_ls(t_ls *ls)
-{
-	ft_parse(ls);
-	arrange_ls_data(ls);
-	free_ls(ls);
-}
 
 t_ls		create_ls(int argc, char **argv)
 {
@@ -44,6 +37,8 @@ int			main(int argc, char **argv)
 	t_ls	ls;
 
 	ls = create_ls(argc, argv);
-	ft_ls(&ls);
+	ft_parse(&ls);
+	arrange_ls_data(&ls);
+	free_ls(&ls);
 	return (0);
 }

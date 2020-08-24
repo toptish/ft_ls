@@ -6,7 +6,7 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 17:43:03 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/22 11:02:53 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/24 18:21:11 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,9 +176,9 @@ typedef struct		s_ls
 	t_flags			flags;
 	t_args			*args;
 	t_args			*current_args;
-	// t_args			*head;
-	// t_args			*track;
-	// bool			(*sort_function)(struct s_frame *frame);
+	t_args			*head;
+	t_args			*sorting;
+	int				(*sorting_algo)(struct s_ls *ls);
 }					t_ls;
 
 /*
@@ -230,7 +230,18 @@ void			arrange_ls_data(t_ls *ls);
 /*
 **	---------------- sort.c ------------------
 */
-
+int				sort_time(t_ls *ls);
+int				sort_time_r(t_ls *ls);
+int				sort_size(t_ls *ls);
+int				sort_size_r(t_ls *ls);
+/*
+**	---------------- sort2.c ------------------
+*/
+int				sort_alpha(t_ls *ls);
+int				sort_alpha_r(t_ls *ls);
+int			    swap(t_ls *ls);
+void			do_sort(t_ls *ls);
+void			sort(t_ls *ls);
 /*
 **	---------------- print.c ------------------
 */
