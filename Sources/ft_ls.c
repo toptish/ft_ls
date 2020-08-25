@@ -6,12 +6,17 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 22:19:40 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/24 18:38:14 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/25 09:43:54 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/ft_ls.h"
 
+/*
+** in:		int argc, char **argv
+** out:		t_ls ls
+** desc:	initiates ls structure, allocates memory for it, sets time, gets window_size info
+*/
 t_ls		create_ls(int argc, char **argv)
 {
 	t_ls	ls;

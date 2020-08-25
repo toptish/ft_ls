@@ -6,7 +6,7 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/19 15:31:58 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/24 18:37:28 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/25 09:44:24 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,11 @@ void			read_f(t_ls *ls, t_args *args, struct stat *f)
 	get_type(args);
 }
 
+/*
+** in:		t_ls
+** out:		void
+** desc:	initiates ls structure, allocates memory for it, sets time, gets window_size info
+*/
 void			arrange_ls_data(t_ls *ls)
 {
 	t_args			*args;

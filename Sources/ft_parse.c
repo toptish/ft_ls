@@ -6,12 +6,17 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 10:19:18 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/24 18:38:18 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/25 10:11:11 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/ft_ls.h"
 
+/*
+** in:		t_ls ls, size_t option_num
+** out:		void
+** desc:	allocates memory & saves all options letters to ls.argv_opt_str
+*/
 void		set_opt_str(t_ls *ls, size_t options_num)
 {
 	char			**argv_options;
@@ -37,6 +42,12 @@ void		set_opt_str(t_ls *ls, size_t options_num)
 	*argv_opt_str = 0;
 }
 
+/*
+** in:		t_ls ls, int option
+** out:		void
+** desc:	allocates memory for ls.argv_options & saves argv option strings to it,
+**			saves all options to ls.argv_opt_str
+*/
 void		parse_options(t_ls *ls, int option)
 {
 	char			**argv;
@@ -62,6 +73,12 @@ void		parse_options(t_ls *ls, int option)
 	set_opt_str(ls, options_num);
 }
 
+/*
+** in:		t_ls ls, char **argv
+** out:		void
+** desc:	allocates memory & initiates ls.args (t_arg list of t_item data)
+**			gets path for all args
+*/
 void		parse_args(t_ls *ls, char **argv)
 {
 	t_args			*args;
@@ -81,7 +98,7 @@ void		parse_args(t_ls *ls, char **argv)
 	{
 		if (!(args = create_args()))
 			return_error(ls, "Malloc Error");
-		// path(ls, args, ".", *argv);
+		get_path(ls, args, ".", *argv);
 		if (!ls->args)
 			ls->args = args;
 		else
@@ -91,6 +108,11 @@ void		parse_args(t_ls *ls, char **argv)
 	}
 }
 
+/*
+** in:		t_ls ls
+** out:		int options
+** desc:	calulates number of args starting with "-"
+*/
 int			options_num(t_ls *ls)
 {
 	char			**argv;
@@ -108,6 +130,12 @@ int			options_num(t_ls *ls)
 	return (options);
 }
 
+/*
+** in:		t_ls ls
+** out:		void
+** desc:	parses options & arguments from command line, validates them
+**			& saves them to correspondent fields of t_ls struct
+*/
 void		ft_parse(t_ls *ls)
 {
 	int				options_n;
