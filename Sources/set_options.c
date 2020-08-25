@@ -6,7 +6,7 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 22:51:32 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/24 18:38:52 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/25 13:18:51 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void			check_options(t_ls *ls, unsigned long flags)
 }
 
 /*
-** option_data - sets bits in unsigned long for options (flags) used
+** ft_options - sets bits in unsigned long for options (flags) used
 ** 0-25 bits - for a-z
 ** 26-51 bits for A-Z
 ** 52-62 for 0-9
