@@ -6,7 +6,7 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/24 15:55:35 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/24 18:38:45 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/27 13:46:17 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ void			sort(t_ls *ls)
 	// if (ls->flags.f)
 	// 	return ;
 	tmp = ls->sorting_algo;
-	if (!ls->flags.r)
-		ls->sorting_algo = &sort_alpha;
-	else
+	if (ls->flags.r)
 		ls->sorting_algo = &sort_alpha_r;
+	else
+		ls->sorting_algo = &sort_alpha;
 	ls->head = ls->current_args;
 	do_sort(ls);
 	ls->sorting_algo = tmp;

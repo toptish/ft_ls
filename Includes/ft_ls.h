@@ -6,7 +6,7 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 17:43:03 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/25 10:30:07 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/26 16:39:07 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,14 +189,14 @@ typedef struct		s_ls
 	time_t			cur_time;
 	time_t			time_6;
 	blkcnt_t		blocks;
-	// int				len_ino;
-	// int				len_links;
-	// int				len_user;
-	// int				len_group;
-	// int				len_size;
-	// int				len_file_name;
-	// int				items_to_display;
-	// int				total_blocks;
+	int				len_ino;
+	int				len_links;
+	int				len_user;
+	int				len_group;
+	int				len_size;
+	int				len_file_name;
+	int				items_to_display;
+	int				total_blocks;
 	int				width;
 	int				number_of_columns;
 	t_flags			flags;
@@ -205,6 +205,7 @@ typedef struct		s_ls
 	t_args			*head;
 	t_args			*sorting;
 	int				(*sorting_algo)(struct s_ls *ls);
+	// int				(*sorting_algo)(t_ls *ls);
 }					t_ls;
 
 /*
@@ -221,7 +222,7 @@ void			parse_args(t_ls *ls, char **argv);
 int				options_num(t_ls *ls);
 void			ft_parse(t_ls *ls);
 /*
-**	---------------- parse_2.c ------------------
+**	--------------- parse_2.c -----------------
 */
 t_args			*create_args(void);
 /*
@@ -254,7 +255,7 @@ void			get_user_group(t_ls *ls, t_args *args, struct stat *f);
 void			read_f(t_ls *ls, t_args *args, struct stat *f);
 void			arrange_ls_data(t_ls *ls);
 /*
-**	---------------- sort.c ------------------
+**	----------------- sort.c ------------------
 */
 int				sort_time(t_ls *ls);
 int				sort_time_r(t_ls *ls);
@@ -274,7 +275,20 @@ void			sort(t_ls *ls);
 void			print_usage(t_ls *ls, unsigned long illegal_opt);
 void			print_item(t_ls *ls, t_args *args);
 /*
-**	---------------- get_path.c ------------------
+**	--------------- get_path.c ----------------
 */
 void			get_path(t_ls *ls, t_args *args, char *path, char *name);
+/*
+**	----------- item_data_length.c ------------
+*/
+void			len_ino(t_ls *ls, t_args *args);
+void			len_group(t_ls *ls, t_args *args);
+void			len_file_name(t_ls *ls, t_args *args);
+void			len_links(t_ls *ls, t_args *args);
+void			len_size(t_ls *ls, t_args *args);
+/*
+**	---------- item_data_length2.c ------------
+*/
+void			calc_len_user(t_ls *ls, t_args *args);
+void			calculate_number_of_columns(t_ls *ls);
 #endif
