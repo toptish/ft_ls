@@ -6,7 +6,7 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 22:51:32 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/27 13:46:03 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/27 17:23:24 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,9 @@ void			get_set_options(t_ls *ls)
 
 	if (!ls->argv_options)
 		return ;
-	ft_printf("%s\n", ls->argv_options[1]);
+	// ft_printf("%s\n", ls->argv_options[1]);
 	flags = ft_options(ls->argv_options);
-	ft_printf("flag = %ld\n", flags);
+	// ft_printf("flag = %ld\n", flags);
 	set_options(ls, flags);
 	check_options(ls, flags);
 }

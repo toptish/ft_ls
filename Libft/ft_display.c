@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   qq_display.c                                       :+:      :+:    :+:   */
+/*   ft_display.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmarni <rmarni@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 15:29:34 by rmarni            #+#    #+#             */
-/*   Updated: 2019/10/29 10:26:01 by rmarni           ###   ########.fr       */
+/*   Updated: 2020/08/27 16:18:02 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_display_string_minus(char *str)
 	ft_print_spc_d(' ');
 }
 
-void	ft_dsp_str_minus_false_add(char *str)
+void	ft_dsp_str_minus_0_add(char *str)
 {
 	if (ft_check_is_flag('+') && g_pfstr.precision != 0
 		&& g_pfstr.n_value == 0)
@@ -70,7 +70,7 @@ void	ft_dsp_str_minus_false_add(char *str)
 	}
 }
 
-void	ft_dsp_str_minus_false(char *str)
+void	ft_dsp_str_minus_0(char *str)
 {
 	if (ft_check_is_flag(' ') && !ft_check_is_flag('+')
 		&& !g_pfstr.n_value)
@@ -93,11 +93,11 @@ void	ft_dsp_str_minus_false(char *str)
 		ft_print_spc_d('0');
 	}
 	ft_print_spc_d(' ');
-	ft_dsp_str_minus_false_add(str);
+	ft_dsp_str_minus_0_add(str);
 }
 
 void	ft_display_string(char *str)
 {
 	ft_check_is_flag('-') == 1 ?
-	ft_display_string_minus(str) : ft_dsp_str_minus_false(str);
+	ft_display_string_minus(str) : ft_dsp_str_minus_0(str);
 }

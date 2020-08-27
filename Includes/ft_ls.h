@@ -6,7 +6,7 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 17:43:03 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/26 16:39:07 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/27 16:28:16 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,6 +176,17 @@ typedef struct		s_args
 	t_item			item;
 	struct s_args	*next;
 }					t_args;
+
+typedef struct		s_dir
+{
+	t_ls			*ls;
+	t_args			*args;
+	t_args			*tmp;
+	t_args			*head;
+	t_args			*last_args;
+	DIR				*directory;
+	struct dirent	*file;
+}					t_dir;
 
 typedef struct		s_ls
 {

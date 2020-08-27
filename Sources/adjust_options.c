@@ -6,7 +6,7 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/19 15:42:13 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/27 13:45:43 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/27 17:23:22 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void			sorting_algo(t_ls *ls)
 	if (!ls->flags.r && ls->flags.t)
 		ls->sorting_algo = &sort_time;
 	else if (ls->flags.r && ls->flags.t)
-		ls->sorting_algo = &sort_time;
+		ls->sorting_algo = &sort_time_r;
 	else
 		ls->sorting_algo = NULL;
 }

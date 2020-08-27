@@ -6,12 +6,17 @@
 /*   By: gdorcas <gdorcas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/19 15:31:58 by gdorcas           #+#    #+#             */
-/*   Updated: 2020/08/27 13:45:46 by gdorcas          ###   ########.fr       */
+/*   Updated: 2020/08/27 17:23:21 by gdorcas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/ft_ls.h"
 
+/*
+** in:		t_args
+** out:		void
+** desc:	reads path data and saves it to args->item->path if file is a symlink
+*/
 void			get_sym_path(t_args *args)
 {
 	int				len;
@@ -22,9 +27,14 @@ void			get_sym_path(t_args *args)
 		item->sym_path[len] = '\0';
 }
 
+/*
+** in:		t_args
+** out:		void
+** desc:	analyzes type of file, sets correspondent fileds of item struct to 1 if 1
+*/
 void			get_type(t_args *args)
 {
-	int				type;
+	mode_t				type;
 
 	type = args->item.type;
 	if ((DT_LNK & type) == DT_LNK)
@@ -48,6 +58,11 @@ void			get_type(t_args *args)
 		args->item.blk = 1;
 }
 
+/*
+** in:		t_ls *, t_args *, struct stat *
+** out:		void
+** desc:	!!!!!!!!!!
+*/
 void			get_user_group(t_ls *ls, t_args *args, struct stat *f)
 {
 	struct group	*group;
@@ -67,6 +82,11 @@ void			get_user_group(t_ls *ls, t_args *args, struct stat *f)
 		args->item.group = ls->error;
 }
 
+/*
+** in:		t_ls *, t_args *, struct stat *
+** out:		void
+** desc:	assignes fileds' values of struct stat * to correspondent values of t_args->t_item struct
+*/
 void			read_f(t_ls *ls, t_args *args, struct stat *f)
 {
 	ls->blocks += f->st_blocks;
@@ -87,7 +107,7 @@ void			read_f(t_ls *ls, t_args *args, struct stat *f)
 /*
 ** in:		t_ls
 ** out:		void
-** desc:	initiates ls structure, allocates memory for it, sets time, gets window_size info
+** desc:	gets file's data, saves it to args->item
 */
 void			arrange_ls_data(t_ls *ls)
 {
@@ -106,7 +126,9 @@ void			arrange_ls_data(t_ls *ls)
 	ls->current_args = ls->args;
 	sort(ls);
 	ls->args = ls->current_args;
-	ft_printf("%*d",5, 4);
+	// ft_printf("%*d",5, 4);
+	ft_printf(ls->args->item.path);
+	ft_printf(ls->args->item.sym_path);
 	// check_headers(ls);
 	// distribution(ls);
 }
